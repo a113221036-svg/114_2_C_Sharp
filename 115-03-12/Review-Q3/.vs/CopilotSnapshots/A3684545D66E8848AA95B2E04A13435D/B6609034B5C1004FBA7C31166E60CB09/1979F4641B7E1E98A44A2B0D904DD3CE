@@ -1,0 +1,204 @@
+﻿namespace Review_Q3
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TextBox txtNum1;
+        private System.Windows.Forms.TextBox txtNum2;
+        private System.Windows.Forms.TextBox txtNum3;
+        private System.Windows.Forms.TextBox txtNum4;
+        private System.Windows.Forms.TextBox txtNum5;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnDraw;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtResults;
+        private System.Windows.Forms.Label lblCompareTitle;
+        private System.Windows.Forms.Label lblMatchCount;
+        private System.Windows.Forms.Label lblMatchedNumbers;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            txtNum1 = new System.Windows.Forms.TextBox();
+            txtNum2 = new System.Windows.Forms.TextBox();
+            txtNum3 = new System.Windows.Forms.TextBox();
+            txtNum4 = new System.Windows.Forms.TextBox();
+            txtNum5 = new System.Windows.Forms.TextBox();
+            btnGenerate = new System.Windows.Forms.Button();
+            btnDraw = new System.Windows.Forms.Button();
+            btnExit = new System.Windows.Forms.Button();
+            txtResults = new System.Windows.Forms.TextBox();
+            lblCompareTitle = new System.Windows.Forms.Label();
+            lblMatchCount = new System.Windows.Forms.Label();
+            lblMatchedNumbers = new System.Windows.Forms.Label();
+            SuspendLayout();
+            // 
+            // txtNum1
+            // 
+            txtNum1.Font = new System.Drawing.Font("Segoe UI", 18F);
+            txtNum1.Location = new System.Drawing.Point(24, 18);
+            txtNum1.Name = "txtNum1";
+            txtNum1.Size = new System.Drawing.Size(80, 39);
+            txtNum1.TabIndex = 0;
+            txtNum1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNum2
+            // 
+            txtNum2.Font = new System.Drawing.Font("Segoe UI", 18F);
+            txtNum2.Location = new System.Drawing.Point(120, 18);
+            txtNum2.Name = "txtNum2";
+            txtNum2.Size = new System.Drawing.Size(80, 39);
+            txtNum2.TabIndex = 1;
+            txtNum2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNum3
+            // 
+            txtNum3.Font = new System.Drawing.Font("Segoe UI", 18F);
+            txtNum3.Location = new System.Drawing.Point(216, 18);
+            txtNum3.Name = "txtNum3";
+            txtNum3.Size = new System.Drawing.Size(80, 39);
+            txtNum3.TabIndex = 2;
+            txtNum3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNum4
+            // 
+            txtNum4.Font = new System.Drawing.Font("Segoe UI", 18F);
+            txtNum4.Location = new System.Drawing.Point(312, 18);
+            txtNum4.Name = "txtNum4";
+            txtNum4.Size = new System.Drawing.Size(80, 39);
+            txtNum4.TabIndex = 3;
+            txtNum4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNum5
+            // 
+            txtNum5.Font = new System.Drawing.Font("Segoe UI", 18F);
+            txtNum5.Location = new System.Drawing.Point(408, 18);
+            txtNum5.Name = "txtNum5";
+            txtNum5.Size = new System.Drawing.Size(80, 39);
+            txtNum5.TabIndex = 4;
+            txtNum5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnGenerate
+            // 
+            btnGenerate.Font = new System.Drawing.Font("Segoe UI", 18F);
+            btnGenerate.Location = new System.Drawing.Point(24, 78);
+            btnGenerate.Name = "btnGenerate";
+            btnGenerate.Size = new System.Drawing.Size(160, 56);
+            btnGenerate.TabIndex = 5;
+            btnGenerate.Text = "產生號碼";
+            btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
+            // 
+            // btnDraw
+            // 
+            btnDraw.Font = new System.Drawing.Font("Segoe UI", 18F);
+            btnDraw.Location = new System.Drawing.Point(200, 78);
+            btnDraw.Name = "btnDraw";
+            btnDraw.Size = new System.Drawing.Size(160, 56);
+            btnDraw.TabIndex = 6;
+            btnDraw.Text = "開獎號碼";
+            btnDraw.UseVisualStyleBackColor = true;
+            btnDraw.Click += btnDraw_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Font = new System.Drawing.Font("Segoe UI", 18F);
+            btnExit.Location = new System.Drawing.Point(376, 78);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new System.Drawing.Size(112, 56);
+            btnExit.TabIndex = 7;
+            btnExit.Text = "離開";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // txtResults
+            // 
+            txtResults.Font = new System.Drawing.Font("Segoe UI", 14F);
+            txtResults.Location = new System.Drawing.Point(24, 150);
+            txtResults.Multiline = true;
+            txtResults.Name = "txtResults";
+            txtResults.ReadOnly = true;
+            txtResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            txtResults.Size = new System.Drawing.Size(464, 184);
+            txtResults.TabIndex = 8;
+            // 
+            // lblCompareTitle
+            // 
+            lblCompareTitle.Font = new System.Drawing.Font("Segoe UI", 18F);
+            lblCompareTitle.ForeColor = System.Drawing.Color.Red;
+            lblCompareTitle.Location = new System.Drawing.Point(504, 150);
+            lblCompareTitle.Name = "lblCompareTitle";
+            lblCompareTitle.Size = new System.Drawing.Size(240, 36);
+            lblCompareTitle.TabIndex = 9;
+            lblCompareTitle.Text = "比對結果：";
+            // 
+            // lblMatchCount
+            // 
+            lblMatchCount.Font = new System.Drawing.Font("Segoe UI", 18F);
+            lblMatchCount.ForeColor = System.Drawing.Color.Red;
+            lblMatchCount.Location = new System.Drawing.Point(504, 198);
+            lblMatchCount.Name = "lblMatchCount";
+            lblMatchCount.Size = new System.Drawing.Size(240, 36);
+            lblMatchCount.TabIndex = 10;
+            lblMatchCount.Text = "";
+            // 
+            // lblMatchedNumbers
+            // 
+            lblMatchedNumbers.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            lblMatchedNumbers.ForeColor = System.Drawing.Color.Red;
+            lblMatchedNumbers.Location = new System.Drawing.Point(504, 246);
+            lblMatchedNumbers.Name = "lblMatchedNumbers";
+            lblMatchedNumbers.Size = new System.Drawing.Size(240, 40);
+            lblMatchedNumbers.TabIndex = 11;
+            lblMatchedNumbers.Text = "";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            ClientSize = new System.Drawing.Size(768, 360);
+            Controls.Add(lblMatchedNumbers);
+            Controls.Add(lblMatchCount);
+            Controls.Add(lblCompareTitle);
+            Controls.Add(txtResults);
+            Controls.Add(btnExit);
+            Controls.Add(btnDraw);
+            Controls.Add(btnGenerate);
+            Controls.Add(txtNum5);
+            Controls.Add(txtNum4);
+            Controls.Add(txtNum3);
+            Controls.Add(txtNum2);
+            Controls.Add(txtNum1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "Form1";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "樂透號碼產生器";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+    }
+}

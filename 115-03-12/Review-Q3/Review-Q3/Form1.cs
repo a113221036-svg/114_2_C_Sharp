@@ -1,0 +1,225 @@
+﻿using System;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
+namespace Review_Q3
+{
+    public partial class Form1 : Form
+    {
+        private Random rnd = new Random();
+        private int[] generated = new int[5];
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            // 產生 5 個不重複的號碼 (1-49) 使用基本語法（迴圈、條件、陣列）實作
+            try
+            {
+                var numbers = GenerateUniqueRandoms(5, 1, 49);
+                generated = numbers;
+
+                // 顯示在 Label 陣列上
+                lblNum1.Text = numbers.Length > 0 ? numbers[0].ToString() : string.Empty;
+                lblNum2.Text = numbers.Length > 1 ? numbers[1].ToString() : string.Empty;
+                lblNum3.Text = numbers.Length > 2 ? numbers[2].ToString() : string.Empty;
+                lblNum4.Text = numbers.Length > 3 ? numbers[3].ToString() : string.Empty;
+                lblNum5.Text = numbers.Length > 4 ? numbers[4].ToString() : string.Empty;
+
+                // 清除舊結果
+                lstDrawn.Items.Clear();
+                txtResults.Clear();
+                lblMatchCount.Text = string.Empty;
+                lblMatchedNumbers.Text = string.Empty;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // 使用基本語法實作不重複亂數產生
+        private int[] GenerateUniqueRandoms(int count, int minValue, int maxValue)
+        {
+            if (count <= 0)
+                return new int[0];
+
+            if (minValue > maxValue)
+                throw new ArgumentException("最小值不可大於最大值。");
+
+            int range = maxValue - minValue + 1;
+            if (count > range)
+                throw new ArgumentException("指定數量超過可產生的不重複數字範圍。請縮小數量或擴大範圍。");
+
+            int[] results = new int[count];
+            // 初始化（非必要，但清楚表達陣列內容）
+            for (int i = 0; i < count; i++)
+                results[i] = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                while (true)
+                {
+                    int candidate = rnd.Next(minValue, maxValue + 1); // inclusive max
+                    bool exists = false;
+                    // 檢查是否已存在於 results[0..i-1]
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (results[j] == candidate)
+                        {
+                            exists = true;
+                            break;
+                        }
+                    }
+
+                    if (!exists)
+                    {
+                        results[i] = candidate;
+                        break; // 前往下一個位置
+                    }
+
+                    // 若存在，繼續 while 重新產生 candidate
+                }
+            }
+
+            return results;
+        }
+
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
+            // 使用者須先產生號碼
+            if (generated == null || generated.Length < 5 || generated.All(x => x == 0))
+            {
+                MessageBox.Show("請先按下「產生號碼」以建立您的號碼。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 開啟檔案選擇對話方塊，讀取開獎號碼檔案。
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+
+            string content;
+            try
+            {
+                content = File.ReadAllText(openFileDialog1.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"讀取檔案失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 解析檔案中的整數，支援逗號、空白、換行等分隔
+            int[] drawnNumbers;
+            try
+            {
+                var matches = Regex.Matches(content, "\\d+");
+                drawnNumbers = matches.Cast<Match>().Select(m => int.Parse(m.Value)).ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"解析檔案內容失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (drawnNumbers.Length == 0)
+            {
+                MessageBox.Show("檔案中未偵測到號碼。請確認檔案格式。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 將讀取到的號碼顯示在 ListBox
+            lstDrawn.Items.Clear();
+            foreach (var n in drawnNumbers)
+                lstDrawn.Items.Add(n.ToString());
+
+            // 顯示在結果區 (僅列出前 10 行或所有)
+            txtResults.Clear();
+            txtResults.AppendText("本期開獎號碼：" + Environment.NewLine);
+            for (int i = 0; i < drawnNumbers.Length; i++)
+            {
+                txtResults.AppendText($"第{i + 1}個號碼: {drawnNumbers[i]}" + Environment.NewLine);
+                if (i >= 49) break; // 避免過多輸出
+            }
+
+            // 比對使用者號碼與開獎號碼
+            var matchesArr = generated.Intersect(drawnNumbers).OrderBy(x => x).ToArray();
+            int count = matchesArr.Length;
+
+            if (count == 0)
+            {
+                lblMatchCount.Text = "中0個號碼";
+                lblMatchedNumbers.Text = "😞 沒中獎";
+            }
+            else
+            {
+                lblMatchCount.Text = $"中{count}個號碼";
+                lblMatchedNumbers.Text = string.Join(", ", matchesArr);
+            }
+        }
+
+        private void btnExportImages_Click(object sender, EventArgs e)
+        {
+            // Export three sample screenshots by simulating different states
+            try
+            {
+                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "LottoSamples");
+                Directory.CreateDirectory(dir);
+
+                // State 1: some matches (e.g., 35,26) - simulate labels and results
+                lblNum1.Text = "33"; lblNum2.Text = "24"; lblNum3.Text = "35"; lblNum4.Text = "21"; lblNum5.Text = "26";
+                txtResults.Text = "本期開獎號碼：\r\n第1個號碼: 5\r\n第2個號碼: 20\r\n第3個號碼: 26\r\n第4個號碼: 35";
+                lblMatchCount.Text = "中2個號碼";
+                lblMatchedNumbers.Text = "35, 26";
+                SaveFormImage(Path.Combine(dir, "sample1.png"));
+
+                // State 2: no matches
+                lblNum1.Text = "40"; lblNum2.Text = "21"; lblNum3.Text = "23"; lblNum4.Text = "33"; lblNum5.Text = "47";
+                txtResults.Text = "本期開獎號碼：\r\n第1個號碼: 5\r\n第2個號碼: 20\r\n第3個號碼: 26\r\n第4個號碼: 35";
+                lblMatchCount.Text = "中0個號碼";
+                lblMatchedNumbers.Text = "😞 沒中獎";
+                SaveFormImage(Path.Combine(dir, "sample2.png"));
+
+                // State 3: empty top labels and focus on draw button
+                lblNum1.Text = lblNum2.Text = lblNum3.Text = lblNum4.Text = lblNum5.Text = string.Empty;
+                txtResults.Text = "本期開獎號碼：\r\n第1個號碼: 5\r\n第2個號碼: 20\r\n第3個號碼: 26\r\n第4個號碼: 35";
+                lblMatchCount.Text = string.Empty;
+                lblMatchedNumbers.Text = string.Empty;
+                SaveFormImage(Path.Combine(dir, "sample3.png"));
+
+                MessageBox.Show($"已匯出 3 張示例圖片到：{dir}", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"匯出圖片失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveFormImage(string path)
+        {
+            using (Bitmap bmp = new Bitmap(this.Width, this.Height))
+            {
+                this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                bmp.Save(path);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("確定要離開程式嗎？", "離開", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+                Application.Exit();
+        }
+
+        private void lstDrawn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
