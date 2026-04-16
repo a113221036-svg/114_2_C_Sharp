@@ -49,16 +49,16 @@
             this.testScoresListBox.FormattingEnabled = true;
             this.testScoresListBox.ItemHeight = 45;
             this.testScoresListBox.Location = new System.Drawing.Point(18, 17);
-            this.testScoresListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.testScoresListBox.Margin = new System.Windows.Forms.Padding(4);
             this.testScoresListBox.Name = "testScoresListBox";
-            this.testScoresListBox.Size = new System.Drawing.Size(298, 274);
+            this.testScoresListBox.Size = new System.Drawing.Size(423, 454);
             this.testScoresListBox.TabIndex = 0;
             // 
             // avgScoreDescriptionLabel
             // 
             this.avgScoreDescriptionLabel.AutoSize = true;
             this.avgScoreDescriptionLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.avgScoreDescriptionLabel.Location = new System.Drawing.Point(345, 28);
+            this.avgScoreDescriptionLabel.Location = new System.Drawing.Point(660, 28);
             this.avgScoreDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.avgScoreDescriptionLabel.Name = "avgScoreDescriptionLabel";
             this.avgScoreDescriptionLabel.Size = new System.Drawing.Size(200, 45);
@@ -69,7 +69,7 @@
             // 
             this.aboveAvgDescriptionLabel.AutoSize = true;
             this.aboveAvgDescriptionLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.aboveAvgDescriptionLabel.Location = new System.Drawing.Point(345, 97);
+            this.aboveAvgDescriptionLabel.Location = new System.Drawing.Point(480, 95);
             this.aboveAvgDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboveAvgDescriptionLabel.Name = "aboveAvgDescriptionLabel";
             this.aboveAvgDescriptionLabel.Size = new System.Drawing.Size(380, 45);
@@ -80,7 +80,7 @@
             // 
             this.belowAvgDescriptionLabel.AutoSize = true;
             this.belowAvgDescriptionLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.belowAvgDescriptionLabel.Location = new System.Drawing.Point(345, 166);
+            this.belowAvgDescriptionLabel.Location = new System.Drawing.Point(480, 168);
             this.belowAvgDescriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.belowAvgDescriptionLabel.Name = "belowAvgDescriptionLabel";
             this.belowAvgDescriptionLabel.Size = new System.Drawing.Size(380, 45);
@@ -91,7 +91,7 @@
             // 
             this.averageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.averageLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.averageLabel.Location = new System.Drawing.Point(630, 22);
+            this.averageLabel.Location = new System.Drawing.Point(892, 26);
             this.averageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.averageLabel.Name = "averageLabel";
             this.averageLabel.Size = new System.Drawing.Size(179, 49);
@@ -102,7 +102,7 @@
             // 
             this.aboveAverageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.aboveAverageLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.aboveAverageLabel.Location = new System.Drawing.Point(630, 91);
+            this.aboveAverageLabel.Location = new System.Drawing.Point(892, 95);
             this.aboveAverageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboveAverageLabel.Name = "aboveAverageLabel";
             this.aboveAverageLabel.Size = new System.Drawing.Size(179, 49);
@@ -113,7 +113,7 @@
             // 
             this.belowAverageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.belowAverageLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.belowAverageLabel.Location = new System.Drawing.Point(630, 161);
+            this.belowAverageLabel.Location = new System.Drawing.Point(892, 168);
             this.belowAverageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.belowAverageLabel.Name = "belowAverageLabel";
             this.belowAverageLabel.Size = new System.Drawing.Size(179, 49);
@@ -123,8 +123,8 @@
             // getScoresButton
             // 
             this.getScoresButton.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.getScoresButton.Location = new System.Drawing.Point(345, 277);
-            this.getScoresButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.getScoresButton.Location = new System.Drawing.Point(488, 446);
+            this.getScoresButton.Margin = new System.Windows.Forms.Padding(4);
             this.getScoresButton.Name = "getScoresButton";
             this.getScoresButton.Size = new System.Drawing.Size(240, 62);
             this.getScoresButton.TabIndex = 7;
@@ -135,8 +135,8 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.exitButton.Location = new System.Drawing.Point(615, 277);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Location = new System.Drawing.Point(817, 446);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(195, 62);
             this.exitButton.TabIndex = 8;
@@ -148,7 +148,7 @@
             // 
             this.searchLabel.AutoSize = true;
             this.searchLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.searchLabel.Location = new System.Drawing.Point(-5, 440);
+            this.searchLabel.Location = new System.Drawing.Point(116, 551);
             this.searchLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.searchLabel.Name = "searchLabel";
             this.searchLabel.Size = new System.Drawing.Size(200, 45);
@@ -158,8 +158,8 @@
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.searchTextBox.Location = new System.Drawing.Point(187, 430);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchTextBox.Location = new System.Drawing.Point(330, 548);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(178, 55);
             this.searchTextBox.TabIndex = 10;
@@ -167,8 +167,8 @@
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.searchButton.Location = new System.Drawing.Point(395, 423);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Location = new System.Drawing.Point(625, 548);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(150, 62);
             this.searchButton.TabIndex = 11;
@@ -180,7 +180,7 @@
             // 
             this.searchResultLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchResultLabel.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.searchResultLabel.Location = new System.Drawing.Point(576, 423);
+            this.searchResultLabel.Location = new System.Drawing.Point(817, 548);
             this.searchResultLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.searchResultLabel.Name = "searchResultLabel";
             this.searchResultLabel.Size = new System.Drawing.Size(254, 62);
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 547);
+            this.ClientSize = new System.Drawing.Size(1133, 759);
             this.Controls.Add(this.searchResultLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
@@ -205,7 +205,7 @@
             this.Controls.Add(this.aboveAvgDescriptionLabel);
             this.Controls.Add(this.avgScoreDescriptionLabel);
             this.Controls.Add(this.testScoresListBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "測驗成績清單";
             this.ResumeLayout(false);
