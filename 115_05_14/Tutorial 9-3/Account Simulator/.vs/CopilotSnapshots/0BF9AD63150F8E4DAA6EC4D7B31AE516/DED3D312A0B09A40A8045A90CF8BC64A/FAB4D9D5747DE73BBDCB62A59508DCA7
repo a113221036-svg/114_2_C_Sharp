@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Account_Simulator
+{
+    // 銀行帳戶類別，用於管理帳戶的存款、提款和餘額
+    class BankAccount
+    {
+       
+    }
+}

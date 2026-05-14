@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Cell_Phone_Test
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // GetPhoneData 方法接收一個 CellPhone 物件作為參數
+        // 將使用者輸入的資料指派到該物件的屬性中
+        private void GetPhoneData(CellPhone phone)
+        {
+            // 從品牌文字框取得輸入的品牌名稱並指派給手機物件
+            phone.Brand = brandTextBox.Text;
+            
+            // 從型號文字框取得輸入的型號並指派給手機物件
+            phone.Model = modelTextBox.Text;
+            
+            // 從價格文字框取得輸入的價格並轉換為十進位數字後指派給手機物件
+            phone.Price = decimal.Parse(priceTextBox.Text);
+        }
+
+        // 建立物件按鈕點擊事件處理程式
+        private void createObjectButton_Click(object sender, EventArgs e)
+        {
+            // 建立一個新的 CellPhone 物件
+            CellPhone phone = new CellPhone();
+            
+            // 呼叫 GetPhoneData 方法將使用者輸入的資料填入物件
+            GetPhoneData(phone);
+            
+            // 將手機物件的品牌屬性顯示在品牌標籤中
+            brandLabel.Text = phone.Brand;
+            
+            // 將手機物件的型號屬性顯示在型號標籤中
+            modelLabel.Text = phone.Model;
+            
+            // 將手機物件的價格屬性顯示在價格標籤中
+            priceLabel.Text = phone.Price.ToString();
+        }
+
+        // 結束按鈕點擊事件處理程式，用於關閉視窗
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉表單視窗
+            this.Close();
+        }
+
+        private void outputBrandLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enterDataGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

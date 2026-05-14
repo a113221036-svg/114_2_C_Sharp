@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Account_Simulator
+{
+    public partial class Form1 : Form
+    {
+        // 銀行帳戶欄位，初始餘額為 $1000
+        
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            balanceLabel.Text = account.Balance.ToString("C"); // 顯示初始餘額
+            
+        }
+
+        private void depositButton_Click(object sender, EventArgs e)
+        {
+            decimal amount;
+            if (decimal.TryParse(balanceLabel.Text, out amount))
+            {
+                Account depositAccount = new Account();
+                depositAccount.Deposit(amount);
+                balanceLabel.Text = depositAccount.Balance.ToString("C");   
+            }
+            // 處理存款按鈕點擊事件
+
+        }
+
+        private void withdrawButton_Click(object sender, EventArgs e)
+        {
+            // 處理提款按鈕點擊事件
+           
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉應用程式視窗
+            this.Close();
+        }
+    }
+}
